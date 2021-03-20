@@ -22,3 +22,15 @@ C:\Users\Professor\Desktop\Labarator1\Labarator1\obj\Debug\Labarator1.csproj.Gen
 C:\Users\Professor\Desktop\Labarator1\Labarator1\obj\Debug\Labarator1.csproj.CoreCompileInputs.cache
 C:\Users\Professor\Desktop\Labarator1\Labarator1\obj\Debug\Labarator1.exe
 C:\Users\Professor\Desktop\Labarator1\Labarator1\obj\Debug\Labarator1.pdb
+M:\C-Coding\Labarator1\Labarator1\obj\Debug\Labarator1.csprojAssemblyReference.cache
+M:\C-Coding\Labarator1\Labarator1\obj\Debug\Labarator1.Entrance.resources
+M:\C-Coding\Labarator1\Labarator1\obj\Debug\Labarator1.Base.resources
+M:\C-Coding\Labarator1\Labarator1\obj\Debug\Labarator1.Properties.Resources.resources
+M:\C-Coding\Labarator1\Labarator1\obj\Debug\Labarator1.Registration.resources
+M:\C-Coding\Labarator1\Labarator1\obj\Debug\Labarator1.csproj.GenerateResource.cache
+M:\C-Coding\Labarator1\Labarator1\obj\Debug\Labarator1.csproj.CoreCompileInputs.cache
+M:\C-Coding\Labarator1\Labarator1\obj\Debug\Labarator1.exe
+M:\C-Coding\Labarator1\Labarator1\obj\Debug\Labarator1.pdb
+M:\C-Coding\Labarator1\Labarator1\bin\Debug\Labarator1.exe.config
+M:\C-Coding\Labarator1\Labarator1\bin\Debug\Labarator1.exe
+M:\C-Coding\Labarator1\Labarator1\bin\Debug\Labarator1.pdb

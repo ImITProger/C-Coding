@@ -105,6 +105,7 @@ namespace Labarator1
             this.Controls.Add(this.button1);
             this.Name = "Entrance";
             this.Text = "Entrance";
+            this.Load += new System.EventHandler(this.Entrance_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

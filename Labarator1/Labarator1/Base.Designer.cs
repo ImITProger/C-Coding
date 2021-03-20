@@ -35,8 +35,10 @@ namespace Labarator1
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.Login = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -47,12 +49,14 @@ namespace Labarator1
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telephoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.lblPageNumber = new System.Windows.Forms.Label();
+            this.lblEndPage = new System.Windows.Forms.Label();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telephone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
@@ -61,7 +65,7 @@ namespace Labarator1
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(32, 342);
+            this.button1.Location = new System.Drawing.Point(32, 420);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(170, 51);
             this.button1.TabIndex = 0;
@@ -71,7 +75,7 @@ namespace Labarator1
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(249, 342);
+            this.button2.Location = new System.Drawing.Point(246, 420);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(183, 50);
             this.button2.TabIndex = 1;
@@ -81,7 +85,7 @@ namespace Labarator1
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(472, 342);
+            this.button3.Location = new System.Drawing.Point(471, 420);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(180, 50);
             this.button3.TabIndex = 2;
@@ -91,20 +95,25 @@ namespace Labarator1
             // 
             // dataGridView
             // 
-            this.dataGridView.AutoGenerateColumns = false;
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.loginDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.surnameDataGridViewTextBoxColumn,
-            this.telephoneDataGridViewTextBoxColumn});
-            this.dataGridView.DataSource = this.userBindingSource;
+            this.Login,
+            this.Email,
+            this.User,
+            this.Surname,
+            this.Telephone});
             this.dataGridView.Location = new System.Drawing.Point(32, 34);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(619, 284);
             this.dataGridView.TabIndex = 3;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            // 
+            // Login
+            // 
+            this.Login.HeaderText = "Логин";
+            this.Login.Name = "Login";
             // 
             // bindingNavigator1
             // 
@@ -131,7 +140,7 @@ namespace Labarator1
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(681, 25);
+            this.bindingNavigator1.Size = new System.Drawing.Size(679, 25);
             this.bindingNavigator1.TabIndex = 4;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -143,6 +152,10 @@ namespace Labarator1
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Добавить";
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(Labarator1.User);
             // 
             // bindingNavigatorCountItem
             // 
@@ -222,45 +235,75 @@ namespace Labarator1
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // userBindingSource
+            // btnPrevious
             // 
-            this.userBindingSource.DataSource = typeof(Labarator1.User);
+            this.btnPrevious.Location = new System.Drawing.Point(183, 330);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(93, 39);
+            this.btnPrevious.TabIndex = 5;
+            this.btnPrevious.Text = "<";
+            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
-            // loginDataGridViewTextBoxColumn
+            // btnNext
             // 
-            this.loginDataGridViewTextBoxColumn.DataPropertyName = "Login";
-            this.loginDataGridViewTextBoxColumn.HeaderText = "Login";
-            this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
+            this.btnNext.Location = new System.Drawing.Point(376, 331);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(90, 37);
+            this.btnNext.TabIndex = 6;
+            this.btnNext.Text = ">";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // emailDataGridViewTextBoxColumn
+            // lblPageNumber
             // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.lblPageNumber.AutoSize = true;
+            this.lblPageNumber.Location = new System.Drawing.Point(313, 343);
+            this.lblPageNumber.Name = "lblPageNumber";
+            this.lblPageNumber.Size = new System.Drawing.Size(32, 13);
+            this.lblPageNumber.TabIndex = 7;
+            this.lblPageNumber.Text = "Page";
+            this.lblPageNumber.Click += new System.EventHandler(this.lblPageNumber_Click);
             // 
-            // nameDataGridViewTextBoxColumn
+            // lblEndPage
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.lblEndPage.AutoSize = true;
+            this.lblEndPage.Location = new System.Drawing.Point(492, 343);
+            this.lblEndPage.Name = "lblEndPage";
+            this.lblEndPage.Size = new System.Drawing.Size(54, 13);
+            this.lblEndPage.TabIndex = 8;
+            this.lblEndPage.Text = "End Page";
+            this.lblEndPage.Click += new System.EventHandler(this.lblEndPage_Click);
             // 
-            // surnameDataGridViewTextBoxColumn
+            // Email
             // 
-            this.surnameDataGridViewTextBoxColumn.DataPropertyName = "Surname";
-            this.surnameDataGridViewTextBoxColumn.HeaderText = "Surname";
-            this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
             // 
-            // telephoneDataGridViewTextBoxColumn
+            // User
             // 
-            this.telephoneDataGridViewTextBoxColumn.DataPropertyName = "Telephone";
-            this.telephoneDataGridViewTextBoxColumn.HeaderText = "Telephone";
-            this.telephoneDataGridViewTextBoxColumn.Name = "telephoneDataGridViewTextBoxColumn";
+            this.User.HeaderText = "User";
+            this.User.Name = "User";
+            // 
+            // Surname
+            // 
+            this.Surname.HeaderText = "Surname";
+            this.Surname.Name = "Surname";
+            // 
+            // Telephone
+            // 
+            this.Telephone.HeaderText = "Telephone";
+            this.Telephone.Name = "Telephone";
             // 
             // Base
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(681, 404);
+            this.ClientSize = new System.Drawing.Size(679, 506);
+            this.Controls.Add(this.lblEndPage);
+            this.Controls.Add(this.lblPageNumber);
+            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.button3);
@@ -297,12 +340,16 @@ namespace Labarator1
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         public System.Windows.Forms.BindingSource userBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn loginDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn surnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telephoneDataGridViewTextBoxColumn;
         public System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Label lblPageNumber;
+        private System.Windows.Forms.Label lblEndPage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Login;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn User;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Surname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telephone;
     }
 }
 

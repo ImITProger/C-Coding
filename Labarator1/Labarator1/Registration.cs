@@ -31,26 +31,44 @@ namespace Labarator1
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            if (LoginTxt.Text == "")
+            {
+                MessageBox.Show("Поля пустые!");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            foreach (User user1 in Base.userBindingSource)
+            foreach (User user1 in Base.db)
             {
-                if (user1.Email == LoginTxt.Text || user1.Login == LoginTxt.Text)
-                { MessageBox.Show("Такой пользователь или почти существует!"); return; }
+                if (user1.Email == EmailTxt.Text || user1.Login == LoginTxt.Text)
+                { 
+                    MessageBox.Show("Такой пользователь или почти существует!"); 
+                    return; 
+                }
+                
+            }
+            if (string.IsNullOrEmpty(LoginTxt.Text) || string.IsNullOrEmpty(EmailTxt.Text))
+            { 
+                MessageBox.Show("Проверьте поля они у вас пустые");
+                return;
+            }
+            if (PhoneTxt.Text.Length < 10)
+            {
+                MessageBox.Show("Номер не верный,проверьте кол-во цыфров");
+                return;
             }
 
             User user = new User() { Login = LoginTxt.Text, Password = PasswordTxt.Text, Name = NameTxt.Text, Surname = Surnametxt.Text, Telephone = PhoneTxt.Text, Email = EmailTxt.Text };
-            Base.userBindingSource.Add(user);
-
+            Base.db.Add(user);
+            
+            
 
         }
 
         private void Registration_Load(object sender, EventArgs e)
         {
-
+           
         }
     }
 }

@@ -38,5 +38,10 @@ namespace Labarator1
             }
             MessageBox.Show("Авторизация не пройдена!!!");
         }
+
+        private void Entrance_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
