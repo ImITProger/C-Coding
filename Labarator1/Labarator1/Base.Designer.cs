@@ -36,6 +36,10 @@ namespace Labarator1
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Login = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telephone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -52,11 +56,6 @@ namespace Labarator1
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.lblPageNumber = new System.Windows.Forms.Label();
-            this.lblEndPage = new System.Windows.Forms.Label();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telephone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
@@ -114,6 +113,26 @@ namespace Labarator1
             // 
             this.Login.HeaderText = "Логин";
             this.Login.Name = "Login";
+            // 
+            // Email
+            // 
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            // 
+            // User
+            // 
+            this.User.HeaderText = "User";
+            this.User.Name = "User";
+            // 
+            // Surname
+            // 
+            this.Surname.HeaderText = "Surname";
+            this.Surname.Name = "Surname";
+            // 
+            // Telephone
+            // 
+            this.Telephone.HeaderText = "Telephone";
+            this.Telephone.Name = "Telephone";
             // 
             // bindingNavigator1
             // 
@@ -260,47 +279,16 @@ namespace Labarator1
             this.lblPageNumber.AutoSize = true;
             this.lblPageNumber.Location = new System.Drawing.Point(313, 343);
             this.lblPageNumber.Name = "lblPageNumber";
-            this.lblPageNumber.Size = new System.Drawing.Size(32, 13);
+            this.lblPageNumber.Size = new System.Drawing.Size(13, 13);
             this.lblPageNumber.TabIndex = 7;
-            this.lblPageNumber.Text = "Page";
+            this.lblPageNumber.Text = "1";
             this.lblPageNumber.Click += new System.EventHandler(this.lblPageNumber_Click);
-            // 
-            // lblEndPage
-            // 
-            this.lblEndPage.AutoSize = true;
-            this.lblEndPage.Location = new System.Drawing.Point(492, 343);
-            this.lblEndPage.Name = "lblEndPage";
-            this.lblEndPage.Size = new System.Drawing.Size(54, 13);
-            this.lblEndPage.TabIndex = 8;
-            this.lblEndPage.Text = "End Page";
-            this.lblEndPage.Click += new System.EventHandler(this.lblEndPage_Click);
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            // 
-            // User
-            // 
-            this.User.HeaderText = "User";
-            this.User.Name = "User";
-            // 
-            // Surname
-            // 
-            this.Surname.HeaderText = "Surname";
-            this.Surname.Name = "Surname";
-            // 
-            // Telephone
-            // 
-            this.Telephone.HeaderText = "Telephone";
-            this.Telephone.Name = "Telephone";
             // 
             // Base
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 506);
-            this.Controls.Add(this.lblEndPage);
             this.Controls.Add(this.lblPageNumber);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrevious);
@@ -344,7 +332,6 @@ namespace Labarator1
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Label lblPageNumber;
-        private System.Windows.Forms.Label lblEndPage;
         private System.Windows.Forms.DataGridViewTextBoxColumn Login;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn User;

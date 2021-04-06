@@ -16,6 +16,7 @@ namespace Labarator1
         int pageSize = 3;
         int pageNumber = 0;
         int pageMax = 0;
+        int s = 1;
         public Base()
         {
             InitializeComponent();
@@ -120,9 +121,9 @@ namespace Labarator1
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
-            dataGridView.Rows.Clear();
-            if(pageNumber != 0)
+            if(pageNumber > 0)
             {
+                dataGridView.Rows.Clear();
                 pageNumber = pageNumber - 1;
                 for (int i = 0; i < pageSize; ++i)
                 {
@@ -136,27 +137,32 @@ namespace Labarator1
                         dataGridView.Rows[i].Cells[4].Value = db[(pageNumber * pageSize) + i].Telephone;
                     }
                 }
+                lblPageNumber.Text = (pageNumber + 1).ToString();
             }
-            
+
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            dataGridView.Rows.Clear();
-            if(pageNumber + 1 <= pageMax)
-                pageNumber = pageNumber + 1;
-            for (int i = 0; i < pageSize; ++i)
+            if (pageNumber + 1 <= pageMax)
             {
-                if ((pageNumber * pageSize) + i < db.Count)
+                pageNumber = pageNumber + 1;
+                dataGridView.Rows.Clear();
+                lblPageNumber.Text = (pageNumber + 1).ToString();
+                for (int i = 0; i < pageSize; ++i)
                 {
-                    dataGridView.Rows.Add();
-                    dataGridView.Rows[i].Cells[0].Value = db[(pageNumber * pageSize) + i].Login;
-                    dataGridView.Rows[i].Cells[1].Value = db[(pageNumber * pageSize) + i].Email;
-                    dataGridView.Rows[i].Cells[2].Value = db[(pageNumber * pageSize) + i].Name;
-                    dataGridView.Rows[i].Cells[3].Value = db[(pageNumber * pageSize) + i].Surname;
-                    dataGridView.Rows[i].Cells[4].Value = db[(pageNumber * pageSize) + i].Telephone;
+                    if ((pageNumber * pageSize) + i < db.Count)
+                    {
+                        dataGridView.Rows.Add();
+                        dataGridView.Rows[i].Cells[0].Value = db[(pageNumber * pageSize) + i].Login;
+                        dataGridView.Rows[i].Cells[1].Value = db[(pageNumber * pageSize) + i].Email;
+                        dataGridView.Rows[i].Cells[2].Value = db[(pageNumber * pageSize) + i].Name;
+                        dataGridView.Rows[i].Cells[3].Value = db[(pageNumber * pageSize) + i].Surname;
+                        dataGridView.Rows[i].Cells[4].Value = db[(pageNumber * pageSize) + i].Telephone;
+                    }
                 }
             }
+
         }
 
         private void lblPageNumber_Click(object sender, EventArgs e)
